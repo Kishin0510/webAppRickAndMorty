@@ -16,8 +16,9 @@ export class CharacterService {
 
   async getCharacters(character: string ,page: number): Promise<ResponseAPIGetAll> {
     try {
-      const queryPage = new HttpParams().set('character', character).set('page', page.toString());
-      const response = await firstValueFrom(this.http.get<ResponseAPIGetAll>(`${this.baseUrl}?${queryPage}`));
+      const queryPage = new HttpParams().set('page', page.toString());
+      const queryName = new HttpParams().set('name', character)
+      const response = await firstValueFrom(this.http.get<ResponseAPIGetAll>(`${this.baseUrl}?${queryName}&${queryPage}`));
       return Promise.resolve(response);
 
     } catch (error) {
