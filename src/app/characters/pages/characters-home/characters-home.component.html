@@ -1,11 +1,23 @@
-<h1 class="text-2xl font-bold mb-4">Personajes</h1>
-<app-button accion="prev" (clickBoton)="cambiarPagina($event)"></app-button>
-<app-button accion="next" (clickBoton)="cambiarPagina($event)"></app-button>
-<app-search-bar (query)="buscarPersonajes($event)"></app-search-bar>
+<h1 class="text-2xl font-bold mb-4">Personajes de Rick and Morty</h1>
+<div class="flex justify-between items-center mt-4 w-full max-w-md mb-6">
+  <div class="flex space-x-2">
+    <app-button accion="prev" (clickBoton)="cambiarPagina($event)"></app-button>
+    <app-button accion="next" (clickBoton)="cambiarPagina($event)"></app-button>
+  </div>
+  <app-search-bar class="px-4 w-full max-w-md" (query)="buscarPersonajes($event)"></app-search-bar>
+</div>
 
-<div class="grid grid-cols-4">
+
+<div class="grid grid-cols-4 gap-4">
   <app-card
   *ngFor="let character of characters"
   [character]="character"
   ></app-card>
+</div>
+
+<div class="flex justify-center mt-4">
+  <div>
+    <app-button accion="prev" (clickBoton)="cambiarPagina($event)"></app-button>
+    <app-button accion="next" (clickBoton)="cambiarPagina($event)"></app-button>
+  </div>
 </div>
